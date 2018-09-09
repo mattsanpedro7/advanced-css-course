@@ -6,3 +6,24 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
+
+/* perform basic reset, normalize css to make every browser reset */
+/* use the universal selector "*" to reset it */
+* {
+    margin: 0;
+    padding: 0;
+    /* box sizing: change the box model so borders and box are not added to total height or width*/
+    box-sizing: border-box;
+}
+
+/* properties related to font are inherited */
+/* font should be specified in body */
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    /* 1.7 times bigger than line height you would have without this */
+    line-height: 1.7;
+    color: #777;
+    
+}
