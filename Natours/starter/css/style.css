@@ -20,10 +20,24 @@ Dark green: #28b485
 /* font should be specified in body */
 body {
     font-family: "Lato", sans-serif;
+    /* project wide font */
     font-weight: 400;
     font-size: 16px;
     /* 1.7 times bigger than line height you would have without this */
     line-height: 1.7;
     color: #777;
+    padding: 30px;
+}
+
+.header {
+    /* at every point, height of element should be 95% viewport height */
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, 
+        rgba(126, 213, 111, 0.5), 
+        rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+    background-size: cover;
+    /* top of image stays on top of container */
+    background-position: center;
     
+    clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%)
 }
