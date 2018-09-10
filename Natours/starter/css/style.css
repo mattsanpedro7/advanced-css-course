@@ -54,6 +54,12 @@ body {
     height: 35px;
 }
 
+/*
+.logo:hover {
+    animation: moveInRight 1s ease-out;
+}
+*/
+
 .text-box {
     position: absolute;
     /* in relation to parent element */
@@ -67,6 +73,11 @@ body {
 .heading-primary {
     color: #fff;
     text-transform: uppercase;
+    
+    /* quick fix for jump up after animation completes */
+    /* does not seem to be an issue with current browser */
+    /* background-color: red; */
+    /* backface-visibility: hidden; */
 }
 
 .heading-primary-main {
@@ -74,6 +85,14 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;
+
+    animation: moveInLeft 1s ease-out;
+
+    /* animation-name: moveInLeft; */
+    /* animation-duration: 1s; */
+    /* animation-timing-function: ease-out; */
+    /* animation-iteration-count: 3; */
+    /* animation-delay: 3s; */
 }
 
 .heading-primary-sub {
@@ -81,4 +100,43 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.5px;
+
+    animation: moveInRight 1s ease-out;
+}
+
+/* browsers are optimized for opacity and transform */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+
+    /* 60% {
+        transform: rotate(180deg);
+    } */
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0);
+    }
 }
