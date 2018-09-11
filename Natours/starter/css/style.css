@@ -9,11 +9,21 @@ Dark green: #28b485
 
 /* perform basic reset, normalize css to make every browser reset */
 /* use the universal selector "*" to reset it */
-* {
+/* also select after and before pseudo-elements, avoids strange behavior */
+*,
+*::after,
+*::before {
     margin: 0;
     padding: 0;
-    /* box sizing: change the box model so borders and box are not added to total height or width*/
-    box-sizing: border-box;
+    /* force inherit, will take border-box */
+    box-sizing: inherit;
+}
+
+/* set root font size is 16px */
+/* good to set root font to percentage, */
+/* this will use the browser's given font */
+html {
+    font-size: 62.5%;
 }
 
 /* properties related to font are inherited */
@@ -22,19 +32,22 @@ body {
     font-family: "Lato", sans-serif;
     /* project wide font */
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     /* 1.7 times bigger than line height you would have without this */
     line-height: 1.7;
     color: #777;
-    padding: 30px;
+    padding: 3rem;
+
+    /* box sizing: change the box model so borders and box are not added to total height or width*/
+    box-sizing: border-box;
 }
 
 .header {
     /* at every point, height of element should be 95% viewport height */
     height: 95vh;
     background-image: linear-gradient(to right bottom, 
-        rgba(126, 213, 111, 0.6), 
-        rgba(40, 180, 131, 0.8)), url(../img/hero.jpg);
+        rgba(126, 213, 111, .6), 
+        rgba(40, 180, 131, .8)), url(../img/hero.jpg);
     background-size: cover;
     /* top of image stays on top of container */
     background-position: center;
@@ -45,13 +58,13 @@ body {
 .logo-box {
     /* put image where we want */
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 
 }
 
 .logo {
-    height: 35px;
+    height: 3.5rem;
 }
 
 /*
@@ -77,7 +90,7 @@ body {
     color: #fff;
     text-transform: uppercase;
     
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 
     /* quick fix for jump up after animation completes */
     /* does not seem to be an issue with current browser */
@@ -87,9 +100,9 @@ body {
 
 .heading-primary-main {
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
 
     animation: moveInLeft 1s ease-out;
 
@@ -102,9 +115,9 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.5px;
+    letter-spacing: 1.75rem;
 
     animation: moveInRight 1s ease-out;
 }
@@ -113,7 +126,7 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
 
     /* 60% {
@@ -121,7 +134,7 @@ body {
     } */
 
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100% {
@@ -133,11 +146,11 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -149,7 +162,7 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateY(100px);
+        transform: translateY(10rem);
     }
 
     100% {
@@ -164,28 +177,30 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
+    font-size: 1.6rem;
     /* by default, it is an inline element */
     display: inline-block;
 
     /* to center, if it is text, set text-box */
     text-align: center;
 
-    border-radius: 500px;
-    transition: all 0.2s;
+    border-radius: 50rem;
+    transition: all .2s;
 
     /* set so we can take advantage of psuedo element after */
     position: relative;
 }
 
 .btn:hover {
-    transform: translateY(-3px);
+    transform: translateY(-.3rem);
     /* x y blur */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 .5rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
-    transform: translateY(-1px);
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white {
@@ -200,14 +215,14 @@ body {
     display: inline-block;
     height: 100%;
     width: 100%;
-    border-radius: 300px;
+    border-radius: 30rem;
     /* relative to first position */
     position: absolute;
     top: 0;
     left: 0;
     /* set behind button */
     z-index: -1;
-    transition: all 0.4s;
+    transition: all .4s;
 }
 
 .btn-white::after {
@@ -221,7 +236,7 @@ body {
 }
 
 .btn-animated {
-    animation: moveInBottom 0.5s ease-out 0.75s;
+    animation: moveInBottom .5s ease-out .75s;
     /* auto apply styles of 0% before animation starts */
     animation-fill-mode: backwards;
 }
