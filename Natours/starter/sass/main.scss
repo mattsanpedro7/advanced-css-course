@@ -2,6 +2,10 @@ $color-primary: #55c57a;
 $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485;
 
+$color-grey-dark: #777;
+$color-white: #fff;
+
+
 /* perform basic reset, normalize css to make every browser reset */
 /* use the universal selector "*" to reset it */
 /* also select after and before pseudo-elements, avoids strange behavior */
@@ -30,7 +34,7 @@ body {
     /* font-size: 16px; */
     /* 1.7 times bigger than line height you would have without this */
     line-height: 1.7;
-    color: #777;
+    color: $color-grey-dark;
     padding: 3rem;
 
     /* box sizing: change the box model so borders and box are not added to total height or width*/
@@ -82,7 +86,7 @@ body {
 }
 
 .heading-primary {
-    color: #fff;
+    color: $color-white;
     text-transform: uppercase;
     
     margin-bottom: 3rem;
@@ -199,8 +203,8 @@ body {
 }
 
 .btn--white {
-    background-color: #FFF;
-    color: #777;
+    background-color: $color-white;
+    color: $color-grey-dark;
 
 }
 
@@ -221,7 +225,7 @@ body {
 }
 
 .btn--white::after {
-    background-color: #FFF;
+    background-color: $color-white;
 }
 
 .btn:hover::after {
