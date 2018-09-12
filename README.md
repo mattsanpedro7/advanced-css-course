@@ -1,6 +1,7 @@
 # Installation notes for Ubuntu
 
 npm install node-sass --save-dev
+sudo npm install live-server -g
 
 # Course Material and FAQ for my Advanced CSS Course
 
